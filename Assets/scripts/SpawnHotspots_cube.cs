@@ -10,7 +10,6 @@ public class SpawnHotspots_cube : MonoBehaviour {
 	/* Prefabs */
 	public Transform trigger_point;
 	public Transform trial_counter;
-	public Transform cubes;
 	private GameObject camera;
 
 	/* Global variables */
@@ -59,9 +58,6 @@ public class SpawnHotspots_cube : MonoBehaviour {
 
 		/* Call function once on startup to create initial hotspot */
 		HotSpotTriggerInstantiate ();
-
-		/* Spawn new cube collection */
-		Instantiate (cubes, new Vector3 (-0.3f, 0.3f, 0.3f), Quaternion.identity, this.transform); // Make this gameObject the parent
 	}
 
 	/* Populate point collection and counter collection coordinate lists.
@@ -180,10 +176,6 @@ public class SpawnHotspots_cube : MonoBehaviour {
 		for(var i = 0; i < triggeredCubes.Length; i++) {
 			Destroy(triggeredCubes[i]);
 		}
-
-		/* Spawn new cube collection */
-		Transform local_cubes = Instantiate (cubes, new Vector3 (-0.3f, 0.3f, 0.3f), Quaternion.identity, this.transform); // Make this gameObject the parent
-		local_cubes.localPosition = new Vector3 (-0.3f, 0.3f, 0.3f); // Spawn position relative to parent
 
 		itr = 0;
 

@@ -95,6 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3465ce0c8716eb24899ad4ee63703707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  small: {fileID: 4112760684374178, guid: c28231ce2f258814ca363c6475775b36, type: 2}
+  medium: {fileID: 4761489657994050, guid: 40a9caf9b1ed7ee478e34f5d5bbe7d12, type: 2}
+  large: {fileID: 4240290290278894, guid: 7286eb9097161d845a5d443c0fb3d201, type: 2}
+  n: 0
 --- !u!135 &135590852255717660
 SphereCollider:
   m_ObjectHideFlags: 1
