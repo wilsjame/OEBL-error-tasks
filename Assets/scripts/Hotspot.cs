@@ -59,7 +59,7 @@ public class Hotspot : MonoBehaviour
 
 	if (cubes_placed < 28)
 	{
-		n = Random.Range(0, 2); // # available cube sizes 
+		n = Random.Range(0, 3); // # available cube sizes 
 
 		switch (n)
 		{
