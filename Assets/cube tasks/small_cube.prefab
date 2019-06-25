@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114149604968781600}
   - component: {fileID: 54305583142210280}
   - component: {fileID: 114966533323978836}
+  - component: {fileID: 114444675231588000}
   m_Layer: 0
   m_Name: small_cube
   m_TagString: Untagged
@@ -119,7 +120,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1167217749787122}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d5a0a60fbe897549ad0bfe2039f12b6, type: 3}
   m_Name: 
@@ -130,6 +131,25 @@ MonoBehaviour:
   PositionLerpSpeed: 0.2
   RotationLerpSpeed: 0.2
   IsDraggingEnabled: 1
+--- !u!114 &114444675231588000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1167217749787122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc5df464826e4644684189d9e287ee2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HostTransform: {fileID: 0}
+  DistanceScale: 2
+  RotationMode: 0
+  PositionLerpSpeed: 0.2
+  RotationLerpSpeed: 0.2
+  IsDraggingEnabled: 1
+  some_error: 
+  error_itr: 0
 --- !u!114 &114966533323978836
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -50,7 +50,7 @@ public class HotspotColorChanger : MonoBehaviour
 	cube.tag = "triggered";
 		
         /* Disable hand dragging */
-        cube.GetComponent<HandDraggable>().enabled = false;
+        cube.GetComponent<HandDraggableError>().enabled = false; //TODO necessary if disabling box collider?
 
 	/* Allow cubes behind placed cubes to be grabbed */
 	cube.GetComponent<Collider>().enabled = false;

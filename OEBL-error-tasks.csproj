@@ -935,6 +935,7 @@
     <Compile Include="Assets\HoloToolkit-Examples\UX\Scripts\Widgets\TextureThemeWidget.cs" />
     <Compile Include="Assets\scripts\CollectionSizeSlider.cs" />
     <Compile Include="Assets\scripts\DistanceSlider.cs" />
+    <Compile Include="Assets\scripts\HandDraggableError.cs" />
     <Compile Include="Assets\scripts\HeightSlider.cs" />
     <Compile Include="Assets\scripts\Hotspot.cs" />
     <Compile Include="Assets\scripts\HotspotColorChanger.cs" />
