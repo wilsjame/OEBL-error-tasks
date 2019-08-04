@@ -1,6 +1,7 @@
 **~
 App/
 UWP/
+.vs/
 Libray/
 Temp/
 UnityPackageManager/
