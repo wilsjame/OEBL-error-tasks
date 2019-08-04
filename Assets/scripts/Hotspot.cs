@@ -47,7 +47,7 @@ public class Hotspot : MonoBehaviour
 			break;
 	}
 
-	/* Introduced error. Spawns a random cube size for each new trigger point. */
+	/* Introduced error. Spawn the user selected cube size for each new trigger point. */
 	if (m_Scene.name == "cube")
 	{
 		cubes_placed = GameObject.Find ("SpawnHotSpots").GetComponent<SpawnHotspots_cube> ().itr;
@@ -59,21 +59,44 @@ public class Hotspot : MonoBehaviour
 
 	if (cubes_placed < 28)
 	{
-		n = Random.Range(0, 3); // # available cube sizes 
 
-		switch (n)
+		switch (GameObject.Find ("TaskConfig").GetComponent<TaskConfig> ().size)
 		{
-			case 0:
+			case "small":
 				local_cube = Instantiate (small, new Vector3 (-0.3f, 0.3f, 0.3f), Quaternion.identity, GameObject.Find ("SpawnHotSpots").transform); 
 				break;
-			case 1:
-				local_cube = Instantiate (medium, new Vector3 (-0.3f, 0.3f, 0.3f), Quaternion.identity, GameObject.Find ("SpawnHotSpots").transform);
+			case "medium":
+				local_cube = Instantiate (medium, new Vector3 (-0.3f, 0.3f, 0.3f), Quaternion.identity, GameObject.Find ("SpawnHotSpots").transform); 
 				break;
-			case 2:
-				local_cube = Instantiate (large, new Vector3 (-0.3f, 0.3f, 0.3f), Quaternion.identity, GameObject.Find ("SpawnHotSpots").transform);
+			case "large":
+				local_cube = Instantiate (large, new Vector3 (-0.3f, 0.3f, 0.3f), Quaternion.identity, GameObject.Find ("SpawnHotSpots").transform); 
+				break;
+			case "random": //TODO hook up if needed and add to menu 
+				n = Random.Range(0, 3); // # available cube sizes 
+
+				switch (n)
+				{
+					case 0:
+						local_cube = Instantiate (small, new Vector3 (-0.3f, 0.3f, 0.3f), Quaternion.identity, GameObject.Find ("SpawnHotSpots").transform); 
+						break;
+					case 1:
+						local_cube = Instantiate (medium, new Vector3 (-0.3f, 0.3f, 0.3f), Quaternion.identity, GameObject.Find ("SpawnHotSpots").transform);
+						break;
+					case 2:
+						local_cube = Instantiate (large, new Vector3 (-0.3f, 0.3f, 0.3f), Quaternion.identity, GameObject.Find ("SpawnHotSpots").transform);
+						break;
+					default:
+						//
+						break;
+				}
+
+				break;
+
+			default:
+				//
 				break;
 		}
-
+		
 		local_cube.localPosition = new Vector3 (-0.3f, 0.3f, 0.3f); // spawn position relative to parent to correct slider affects
 	}
 
