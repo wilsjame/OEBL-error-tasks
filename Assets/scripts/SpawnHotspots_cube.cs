@@ -132,7 +132,6 @@ public class SpawnHotspots_cube : MonoBehaviour {
 		/* Shuffle list to randomize spawn order */
 		shuffle (ref coOrds_collection);
 
-		//TODO FINISHED add one more counter 4
 		/* Trial counters */
 		CoOrds counter_1 = new CoOrds (-0.47f, 0.57f, 0.3f, null);
 		counter_collection.Add (counter_1);
@@ -231,7 +230,7 @@ public class SpawnHotspots_cube : MonoBehaviour {
 			}
 
 		}
-		//TODO add details to results file 
+		//TODO add error details to results file 
 		/* Start new trial and update counter */
 		else {
 			UnityEngine.Debug.Log( "Starting a new trial!" );
@@ -257,7 +256,6 @@ public class SpawnHotspots_cube : MonoBehaviour {
 
 			UnityEngine.Debug.Log( "Trial " + trial + " completed!");
 
-			//TODO 3 -> 4     0 1 2 3 4
 			if (trial < 4) {
 				reset();
 			}
