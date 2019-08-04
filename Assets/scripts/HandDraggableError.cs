@@ -76,16 +76,41 @@ namespace HoloToolkit.Unity.InputModule
 	public List<bool> some_error = new List<bool> ();
 	public int error_itr = 0;				
 
+	/* Settings */
+	private GameObject config;
+
         private void Start()
         {
-
 		/* Populate error */
-		some_error.Add(true);
-		some_error.Add(true);
-		some_error.Add(true);
-		some_error.Add(false);
-
-		shuffleError(ref some_error);
+		switch (getTrialError())
+		{
+			case "random":
+				some_error.Add(true);
+				some_error.Add(true);
+				some_error.Add(true);
+				some_error.Add(true);
+				some_error.Add(false);
+				shuffleError(ref some_error);
+				break;
+			case "1":
+				some_error.Add(false);
+				break;
+			case "3":
+				some_error.Add(true);
+				some_error.Add(true);
+				some_error.Add(false);
+				break;
+			case "5":
+				some_error.Add(true);
+				some_error.Add(true);
+				some_error.Add(true);
+				some_error.Add(true);
+				some_error.Add(false);
+				break;
+			default:
+				//
+				break;
+		}
 
             if (HostTransform == null)
             {
@@ -125,6 +150,34 @@ namespace HoloToolkit.Unity.InputModule
 	    }
 
         }
+
+	/* Gets the current trial's error settings. */
+	private string getTrialError()
+	{
+		string error = "";
+
+		switch (GameObject.Find("SpawnHotSpots").GetComponent<SpawnHotspots_cube>().trial)
+		{
+			case 0: // trial 1
+				error = GameObject.Find("TaskConfig").GetComponent<TaskConfig>().trial_1;
+				break;
+			case 1:
+				error = GameObject.Find("TaskConfig").GetComponent<TaskConfig>().trial_2;
+				break;
+			case 2:
+				error = GameObject.Find("TaskConfig").GetComponent<TaskConfig>().trial_3;
+				break;
+			case 3:
+				error = GameObject.Find("TaskConfig").GetComponent<TaskConfig>().trial_4;
+				break;
+			default:
+				//
+				break;
+		}
+
+		return error;
+
+	}
         
 	/* Introduced error. Adds wait time between triggers and false triggers. 
 	 * Ex) Tap a trigger point more than once with 1 second between each tap to trigger. */
