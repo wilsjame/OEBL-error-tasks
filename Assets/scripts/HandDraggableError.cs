@@ -79,8 +79,13 @@ namespace HoloToolkit.Unity.InputModule
 	/* Settings */
 	private GameObject config;
 
+	Scene m_Scene;
+
         private void Start()
         {
+		// Return the current active scene in order to get the current scene's name
+		m_Scene = SceneManager.GetActiveScene();
+
 		/* Populate error */
 		switch (getTrialError())
 		{
@@ -155,8 +160,19 @@ namespace HoloToolkit.Unity.InputModule
 	private string getTrialError()
 	{
 		string error = "";
+		int trial = 0;
 
-		switch (GameObject.Find("SpawnHotSpots").GetComponent<SpawnHotspots_cube>().trial)
+		// get the current trial number
+		if (m_Scene.name == "cube")
+		{
+			trial = GameObject.Find("SpawnHotSpots").GetComponent<SpawnHotspots_cube>().trial;
+		}
+		else if (m_Scene.name == "cube random plane")
+		{
+			trial = GameObject.Find("SpawnHotSpots").GetComponent<SpawnHotspots_cube_random_plane>().trial;
+		}
+
+		switch (trial)
 		{
 			case 0: // trial 1
 				error = GameObject.Find("TaskConfig").GetComponent<TaskConfig>().trial_1;
