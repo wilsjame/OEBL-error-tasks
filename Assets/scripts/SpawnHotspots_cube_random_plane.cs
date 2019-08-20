@@ -46,6 +46,9 @@ public class SpawnHotspots_cube_random_plane : MonoBehaviour {
 	public System.TimeSpan plane_1_time;
 	public System.TimeSpan plane_2_time;
 	public System.TimeSpan plane_3_time;
+
+	// Settings
+	private TaskConfig config;
 	
 	/* Use this for initialization */
 	void Start () 
@@ -62,6 +65,20 @@ public class SpawnHotspots_cube_random_plane : MonoBehaviour {
 		path = Path.Combine(Application.persistentDataPath, fileName);
 		UnityEngine.Debug.Log(fileName);
 		UnityEngine.Debug.Log(Application.persistentDataPath);
+
+		// Write task set up to results file
+		// Size : S M L
+		// Error : 1, 3, R, 5
+		config = GameObject.Find("TaskConfig").GetComponent<TaskConfig>();
+
+		File.AppendAllText(@path, "Size    : " + config.size);   
+		File.AppendAllText(@path, "\r\n");
+		File.AppendAllText(@path, "Error   : " +
+				config.trial_1 + ", " +
+				config.trial_2 + ", " +
+				config.trial_3 + ", " +
+				config.trial_4);
+		File.AppendAllText(@path, "\r\n");
 
 		initializeCoordinates (ref coOrds_collection, ref counter_collection, ref coOrds_collection_1, ref coOrds_collection_2, ref coOrds_collection_3);
 
