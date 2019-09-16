@@ -9,6 +9,7 @@ Assets/scenes/cube random plane.unity
 Assets/scenes/pointing.unity
 Assets/scenes/pointing random plane.unity
 SceneListEnd?
+961fb21095472355eab6ab44db19fdf8 Assembly-CSharp.dll:.TaskConfig
 7abde016883951c4ca4e7c44ce6adb2c Assembly-CSharp.dll:HoloToolkit.Unity.SceneLauncher
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:HoloToolkit.Unity.UX.BoundingBoxGizmoHandle
 c435bd06b74bbebac563a6d81dae369c Assembly-CSharp.dll:HoloToolkit.Unity.CanvasHelper
@@ -103,6 +104,8 @@ a33037253cd01a5bfd05db4cf8688db5 Assembly-CSharp.dll:HoloToolkit.UI.Keyboard.Axi
 e6fccba36520b6f5f4d5fedef26a9841 Assembly-CSharp.dll:HoloToolkit.Unity.Billboard
 c3c1b4928aca0cbd6474db5673be8dfe Assembly-CSharp.dll:HoloToolkit.Examples.InteractiveElements.PositionThemeWidget
 e8e726bd754c05b8a524d2121c366237 Assembly-CSharp.dll:HoloToolkit.Examples.Prototyping.CycleRotation
+05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
+05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:HoloToolkit.Examples.GazeRuler.ModeTip
 b7d14587d3aced50877c9eb4fad888d6 Assembly-CSharp.dll:HoloToolkit.Unity.VolumeInformation
 b3823de281e428cf0dba1153469ff4ab Assembly-CSharp.dll:HoloToolkit.Unity.SphereBasedTagalong
@@ -375,6 +378,7 @@ a61e5da6995674aa29ce3073ac66ed45 Assembly-CSharp.dll:HoloToolkit.Unity.InputModu
 7abb7178375991ec6e0fcffd060196e9 Assembly-CSharp.dll:HoloToolkit.Examples.UX.ObjectDisplayScript
 9913240caf358e21700480ef0550f19f Assembly-CSharp.dll:HoloToolkit.Unity.SlicingPlaneController
 b39fddbe4ede4fafe2e1641885144305 Assembly-CSharp.dll:HoloToolkit.Unity.WorldAnchorManager
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.TrialSetup
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:HoloToolkit.Examples.SpatialMappingComponent.DropCube
 835dbaaadb3ccfde72d2d998b2ad3329 Assembly-CSharp.dll:HoloToolkit.Examples.ColorPicker.GazeableColorPicker
 21cb47faa59e2017a58a9c1fb5f5299c Assembly-CSharp.dll:HoloToolkit.Examples.GazeRuler.LineTest

@@ -322,10 +322,15 @@ Prefab:
     - target: {fileID: 102639908367590550, guid: a3f14aa6417acfa4ea1c4feb6af974ab,
         type: 2}
       propertyPath: m_Text
-      value: 'Air tap a task to load it.
-
-        When finished with a task, say "Scene Launcher" or press the Backspace key
-        to return the this list.'
+      value: "Air tap a task to load it.\r\n\r\nTap the Cube Tasks Setup radio button
+        menu to choose cube size and error behavior.\r\n- S, M, and L represent small,
+        medium, and large cube sizes. \r\n- 1 represents one valid tap needed to start
+        dragging a cube (i.e. no error).\r\n- 3 represents two false taps and one
+        valid tap. The order of these taps is random. \r\n- 5 represents four false
+        taps and one valid tap. The order of these taps is random.\r\n- Random represents
+        a random selection of 1, 3, or 5 behavior for each cube.\r\n\r\nThe Pointing
+        Tasks error behavior is three false taps and one valid tap. The order of these
+        taps is random."
       objectReference: {fileID: 0}
     - target: {fileID: 114669922776097872, guid: a3f14aa6417acfa4ea1c4feb6af974ab,
         type: 2}
@@ -334,15 +339,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4721688395428170, guid: a3f14aa6417acfa4ea1c4feb6af974ab, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.211
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 4214481129452270, guid: a3f14aa6417acfa4ea1c4feb6af974ab, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.16
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4663534091094826, guid: a3f14aa6417acfa4ea1c4feb6af974ab, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4214481129452270, guid: a3f14aa6417acfa4ea1c4feb6af974ab, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.26
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3f14aa6417acfa4ea1c4feb6af974ab, type: 2}
@@ -506,6 +515,11 @@ Prefab:
       propertyPath: OnSelection.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1879512680}
+    - target: {fileID: 102850755330696644, guid: da054db71141f1941b3964fb2e9c3875,
+        type: 2}
+      propertyPath: m_Text
+      value: "Cube Tasks Setup\n       Trials 1-4"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da054db71141f1941b3964fb2e9c3875, type: 2}
   m_IsPrefabParent: 0

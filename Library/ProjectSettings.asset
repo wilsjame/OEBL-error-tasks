@@ -572,7 +572,7 @@ PlayerSettings:
   metroCertificateNotAfter: 80b09d2939ded501
   metroApplicationDescription: OEBL-error-tasks
   wsaImages: {}
-  metroTileShortName: OEBL-all-tasks
+  metroTileShortName: OEBL-error-tasks
   metroCommandLineArgsFile: 
   metroTileShowName: 0
   metroMediumTileShowName: 0
