@@ -183,9 +183,11 @@ namespace HoloToolkit.Unity.InputModule
 			case 2:
 				error = GameObject.Find("TaskConfig").GetComponent<TaskConfig>().trial_3;
 				break;
+            /*
 			case 3:
 				error = GameObject.Find("TaskConfig").GetComponent<TaskConfig>().trial_4;
 				break;
+            */
 			default:
 				//
 				break;

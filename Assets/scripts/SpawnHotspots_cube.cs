@@ -64,11 +64,11 @@ public class SpawnHotspots_cube : MonoBehaviour {
 		
 		File.AppendAllText(@path, "Size    : " + config.size);   
 		File.AppendAllText(@path, "\r\n");
-		File.AppendAllText(@path, "Error   : " +
-				config.trial_1 + ", " +
-				config.trial_2 + ", " +
-				config.trial_3 + ", " +
-				config.trial_4);
+        File.AppendAllText(@path, "Error   : " +
+                config.trial_1 + ", " +
+                config.trial_2 + ", " +
+                config.trial_3); /*+ ", " +
+				config.trial_4);*/
 		File.AppendAllText(@path, "\r\n");
 
 		initializeCoordinates (ref coOrds_collection, ref counter_collection);
@@ -156,8 +156,10 @@ public class SpawnHotspots_cube : MonoBehaviour {
 		counter_collection.Add (counter_2);
 		CoOrds counter_3 = new CoOrds (-0.35f, 0.57f, 0.3f, null);
 		counter_collection.Add (counter_3);
+        /*
 		CoOrds counter_4 = new CoOrds (-0.29f, 0.57f, 0.3f, null);
 		counter_collection.Add (counter_4);
+        */
 	}
 
 	/* Shuffle a coordinate list. */
@@ -273,7 +275,7 @@ public class SpawnHotspots_cube : MonoBehaviour {
 
 			UnityEngine.Debug.Log( "Trial " + trial + " completed!");
 
-			if (trial < 4) {
+			if (trial < 3) {
 				reset();
 			}
 				

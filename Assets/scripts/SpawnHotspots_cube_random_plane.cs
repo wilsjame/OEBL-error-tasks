@@ -73,11 +73,11 @@ public class SpawnHotspots_cube_random_plane : MonoBehaviour {
 
 		File.AppendAllText(@path, "Size    : " + config.size);   
 		File.AppendAllText(@path, "\r\n");
-		File.AppendAllText(@path, "Error   : " +
-				config.trial_1 + ", " +
-				config.trial_2 + ", " +
-				config.trial_3 + ", " +
-				config.trial_4);
+        File.AppendAllText(@path, "Error   : " +
+                config.trial_1 + ", " +
+                config.trial_2 + ", " +
+                config.trial_3); /*+ ", " +
+				config.trial_4);*/
 		File.AppendAllText(@path, "\r\n");
 
 		initializeCoordinates (ref coOrds_collection, ref counter_collection, ref coOrds_collection_1, ref coOrds_collection_2, ref coOrds_collection_3);
@@ -166,8 +166,10 @@ public class SpawnHotspots_cube_random_plane : MonoBehaviour {
 		counter_collection.Add (counter_2);
 		CoOrds counter_3 = new CoOrds (-0.35f, 0.57f, 0.3f, null);
 		counter_collection.Add (counter_3);
+        /*
 		CoOrds counter_4 = new CoOrds (-0.29f, 0.57f, 0.3f, null);
 		counter_collection.Add (counter_4);
+        */
 	}
 
 	/* Shuffle coordinate list by plane and shuffle plane order */
@@ -380,7 +382,7 @@ public class SpawnHotspots_cube_random_plane : MonoBehaviour {
 			local_trial_counter.localPosition = new Vector3 (coords_temp.x, coords_temp.y, coords_temp.z); // Spawn position relative to parent
 			UnityEngine.Debug.Log( "Trial " + trial + " completed!");
 
-			if (trial < 4) {
+			if (trial < 3) {
 				reset();
 			}
 
