@@ -9,7 +9,7 @@ Assets/scenes/cube random plane.unity
 Assets/scenes/pointing.unity
 Assets/scenes/pointing random plane.unity
 SceneListEnd?
-961fb21095472355eab6ab44db19fdf8 Assembly-CSharp.dll:.TaskConfig
+2f9d1cbe1fc8265f682fe65e8dde8f0d Assembly-CSharp.dll:.TaskConfig
 7abde016883951c4ca4e7c44ce6adb2c Assembly-CSharp.dll:HoloToolkit.Unity.SceneLauncher
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:HoloToolkit.Unity.UX.BoundingBoxGizmoHandle
 c435bd06b74bbebac563a6d81dae369c Assembly-CSharp.dll:HoloToolkit.Unity.CanvasHelper
@@ -104,8 +104,6 @@ a33037253cd01a5bfd05db4cf8688db5 Assembly-CSharp.dll:HoloToolkit.UI.Keyboard.Axi
 e6fccba36520b6f5f4d5fedef26a9841 Assembly-CSharp.dll:HoloToolkit.Unity.Billboard
 c3c1b4928aca0cbd6474db5673be8dfe Assembly-CSharp.dll:HoloToolkit.Examples.InteractiveElements.PositionThemeWidget
 e8e726bd754c05b8a524d2121c366237 Assembly-CSharp.dll:HoloToolkit.Examples.Prototyping.CycleRotation
-05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
-05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:HoloToolkit.Examples.GazeRuler.ModeTip
 b7d14587d3aced50877c9eb4fad888d6 Assembly-CSharp.dll:HoloToolkit.Unity.VolumeInformation
 b3823de281e428cf0dba1153469ff4ab Assembly-CSharp.dll:HoloToolkit.Unity.SphereBasedTagalong
