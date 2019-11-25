@@ -50,9 +50,12 @@ public class SpawnHotspots_pointing_random_plane : MonoBehaviour {
 	public Stopwatch plane_stopwatch = new Stopwatch();
 	public System.TimeSpan trial_time;
 	public System.TimeSpan plane_time;
-	
-	/* Use this for initialization */
-	void Start () {
+
+    // Settings
+    private TaskConfig config;
+
+    /* Use this for initialization */
+    void Start () {
 
 		// Position camera
 		camera = GameObject.Find("MixedRealityCameraParent");
@@ -64,10 +67,42 @@ public class SpawnHotspots_pointing_random_plane : MonoBehaviour {
 		fileName = fileName.Replace(":",";");
 		path = Path.Combine(Application.persistentDataPath, fileName);
 		UnityEngine.Debug.Log(fileName);
-		UnityEngine.Debug.Log(Application.persistentDataPath);	
+		UnityEngine.Debug.Log(Application.persistentDataPath);
 
-		/* Generate */
-		initializeCoordinates (ref order, ref coOrds_collection, ref coOrds_collection_1, ref coOrds_collection_2, ref coOrds_collection_3);
+        // Write task set up to results file
+        // Error : R, 1, 3, 5
+        // # Trials : 1, 2, 3
+        config = GameObject.Find("TaskConfig").GetComponent<TaskConfig>();
+        //UnityEngine.Debug.Log("pointing_error: " + config.pointing_error);
+        //UnityEngine.Debug.Log("pointing_trials: " + config.pointing_trials);
+        /*
+        File.AppendAllText(@path, "Trials  : " + config.pointing_trials);
+        File.AppendAllText(@path, "\r\n");
+        */
+        File.AppendAllText(@path, "Error   : " + config.pointing_error);
+        File.AppendAllText(@path, "\r\n");
+
+        // convert # trials from string to int
+        /*
+        switch (config.pointing_trials)
+        {
+            case "1":
+                total_trials = 1;
+                break;
+            case "2":
+                total_trials = 2;
+                break;
+            case "3":
+                total_trials = 3;
+                break;
+            default:
+                //
+                break;
+        }
+        */
+
+        /* Generate */
+        initializeCoordinates (ref order, ref coOrds_collection, ref coOrds_collection_1, ref coOrds_collection_2, ref coOrds_collection_3);
 
 		/* Call function once on startup to create initial hotspot */
 		HotSpotTriggerInstantiate ();
