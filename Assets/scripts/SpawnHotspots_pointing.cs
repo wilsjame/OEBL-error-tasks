@@ -16,6 +16,7 @@ public class SpawnHotspots_pointing : MonoBehaviour {
 	/* Prefabs */
 	public Transform static_point;
 	public Transform trigger_point;
+    public Transform trial_counter;
 	private GameObject camera;
 
 	/* Encapsulated trial counter coordinates */ 
@@ -36,13 +37,18 @@ public class SpawnHotspots_pointing : MonoBehaviour {
 
 	List<List<CoOrds>> coOrds_collection = new List<List<CoOrds>> ();	/* Entire point collection */
 	List<CoOrds> coOrds_collection_2 = new List<CoOrds> (); /* z = 0.3 frame points */
-	public int[] order = {0};				/* Plane spawn order */
+    List<CoOrds> counter_collection = new List<CoOrds>();   /* Trial counter coordinates */
+    public int[] order = {0};				/* Plane spawn order */
 	public int itr = 0;					/* Keep track of list iterations */
-	private int trial = 0;					/* Keep track of completed trials */
+	public int trial = 0;					/* Keep track of completed trials */
+    private int total_trials; // number of trials selected from the task set up menu 
 
 	public string fileName = "pointing_task_time_";
 	public Stopwatch stopwatch = new Stopwatch();
-	public string path; 
+	public string path;
+
+    // Settings
+    private TaskConfig config;
 
 	/* Use this for initialization */
 	void Start () {
@@ -56,11 +62,39 @@ public class SpawnHotspots_pointing : MonoBehaviour {
 		fileName = fileName.Replace("/","-");
 		fileName = fileName.Replace(":",";");
 		path = Path.Combine(Application.persistentDataPath, fileName);
-		//Test outfile
-		//File.WriteAllText(@path, "trace");
-		
-		/* Generate */
-		initializeCoordinates (ref order, ref coOrds_collection, ref coOrds_collection_2);
+        //Test outfile
+        //File.WriteAllText(@path, "trace");
+
+        // Write task set up to results file
+        // Error : R, 1, 3, 5
+        // # Trials : 1, 2, 3
+        config = GameObject.Find("TaskConfig").GetComponent<TaskConfig>();
+        //UnityEngine.Debug.Log("pointing_error: " + config.pointing_error);
+        //UnityEngine.Debug.Log("pointing_trials: " + config.pointing_trials);
+        File.AppendAllText(@path, "# Trials : " + config.pointing_trials);
+        File.AppendAllText(@path, "\r\n"); 
+        File.AppendAllText(@path, "Error : " + config.pointing_error);
+        File.AppendAllText(@path, "\r\n");
+
+        // convert # trials from string to int
+        switch (config.pointing_trials)
+        {
+            case "1":
+                total_trials = 1;
+                break;
+            case "2":
+                total_trials = 2;
+                break;
+            case "3":
+                total_trials = 3;
+                break;
+            default:
+                //
+                break;
+        }
+
+        /* Generate */
+        initializeCoordinates (ref order, ref coOrds_collection, ref coOrds_collection_2);
 
 		/* Call function once on startup to create initial hotspot */
 		HotSpotTriggerInstantiate ();
@@ -97,8 +131,16 @@ public class SpawnHotspots_pointing : MonoBehaviour {
 		/* Add plane to entire collection */
 		coOrds_collection.Add(coOrds_collection_2);
 
-		/* Spawn initial static points */ 
-		for (i = 0; i < numberOfObjects; i++) {
+        /* Trial counters */
+        CoOrds counter_1 = new CoOrds(0.71f, 0.5f, 0.0f, null);
+        counter_collection.Add(counter_1);
+        CoOrds counter_2 = new CoOrds(0.81f, 0.5f, 0.0f, null);
+        counter_collection.Add(counter_2);
+        CoOrds counter_3 = new CoOrds(0.91f, 0.5f, 0.0f, null);
+        counter_collection.Add(counter_3);
+
+        /* Spawn initial static points */
+        for (i = 0; i < numberOfObjects; i++) { 
 			temp_vector = coOrds_collection[order[trial]] [i];
 			Transform static_pt = Instantiate(static_point, new Vector3 (temp_vector.x, temp_vector.y, temp_vector.z), Quaternion.identity, this.transform); // Make this gameObject the parent
 			
@@ -111,30 +153,70 @@ public class SpawnHotspots_pointing : MonoBehaviour {
 	{
 		/* check if user has tapped first point */
 		if (itr == 1) {
-			// Begin timing
-			stopwatch.Start();
+            UnityEngine.Debug.Log("Trial " + (trial + 1) + " timing start");
+            // Begin timing
+            stopwatch.Start();
 		}
 
 		CoOrds coords_temp = new CoOrds ();
 
 		/* Spawn trigger points */ 
-		if ( itr < coOrds_collection[order[trial]].Count) {
-			coords_temp = coOrds_collection[order[trial]] [itr];
-			Transform trigger = Instantiate (trigger_point, new Vector3 (coords_temp.x, coords_temp.y, coords_temp.z), Quaternion.identity, this.transform); // Make this gameObject the parent
+		if ( itr < coOrds_collection[order[0]].Count) { // hard set order[0], previously order[trial], to account for variable # trials
+			coords_temp = coOrds_collection[order[0]] [itr]; // hard set order[0], previously order[trial], to account for variable # trials
+            Transform trigger = Instantiate (trigger_point, new Vector3 (coords_temp.x, coords_temp.y, coords_temp.z), Quaternion.identity, this.transform); // Make this gameObject the parent
 			trigger.localPosition = new Vector3 (coords_temp.x, coords_temp.y, coords_temp.z); // Spawn position relative to parent
 			itr++;
 		}
 
 		/* Trial is completed */
 		else {
-			// Stop timing
-			System.TimeSpan ts = stopwatch.Elapsed;
+
+            // Spawn trial counter
+            trial++;
+            UnityEngine.Debug.Log("Trial " + trial + " completed!");
+            coords_temp = counter_collection[trial - 1];
+            Instantiate(trial_counter, new Vector3(coords_temp.x, coords_temp.y, coords_temp.z), Quaternion.identity);
+
+            // Stop timing
+            System.TimeSpan ts = stopwatch.Elapsed;
 			stopwatch.Stop();
 			UnityEngine.Debug.Log("Time elapsed: " + ts);
 			stopwatch.Reset();
 
 			// Write time to file
-			File.WriteAllText(@path, ts.ToString()); 
+			File.WriteAllText(@path, ts.ToString());
+
+            if (trial < total_trials)
+            {
+                UnityEngine.Debug.Log("Trial " + trial + " completed!");
+                // reset
+                itr = 0;
+
+                // shuffle and spawn first trigger point for next trial
+                int numberOfObjects = 18;
+                int random_placeholder;
+
+                for (int i = 0; i < numberOfObjects; i++)
+                {
+                    random_placeholder = i + Random.Range(0, numberOfObjects - i);
+
+                    /* Swap */
+                    coords_temp = coOrds_collection_2[i];
+                    coOrds_collection_2[i] = coOrds_collection_2[random_placeholder];
+                    coOrds_collection_2[random_placeholder] = coords_temp;
+                }
+
+                coords_temp = coOrds_collection[order[0]][itr]; // hard set order[0], previously order[trial], to account for variable # trials
+                Transform trigger = Instantiate(trigger_point, new Vector3(coords_temp.x, coords_temp.y, coords_temp.z), Quaternion.identity, this.transform); // Make this gameObject the parent
+                trigger.localPosition = new Vector3(coords_temp.x, coords_temp.y, coords_temp.z); // Spawn position relative to parent
+                itr++;
+            }
+            else
+            {
+                UnityEngine.Debug.Log("All trials completed!");
+                // spawn "completed!" text
+            }
+
 		}
 
 	}
