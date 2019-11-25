@@ -74,7 +74,7 @@ namespace HoloToolkit.Unity.InputModule
 	
 	Scene m_Scene;						/* For scene check */
 	public List<bool> some_error = new List<bool> ();	/* Added error */
-	public int error_itr = 0;				
+	public int error_itr = 0;
 
         private void Start()
         {
@@ -92,13 +92,36 @@ namespace HoloToolkit.Unity.InputModule
 			GetComponent<Renderer>().material.color = Color.white;
 		}
 
-		/* Populate error */
-		some_error.Add(true);
-		some_error.Add(true);
-		some_error.Add(true);
-		some_error.Add(false);
-
-		shuffleError(ref some_error);
+            // populate error
+            switch (GameObject.Find("TaskConfig").GetComponent<TaskConfig>().pointing_error)
+            {
+                case "random":
+                    some_error.Add(true);
+                    some_error.Add(true);
+                    some_error.Add(true);
+                    some_error.Add(true);
+                    some_error.Add(false);
+                    shuffleError(ref some_error);
+                    break;
+                case "1":
+                    some_error.Add(false);
+                    break;
+                case "3":
+                    some_error.Add(true);
+                    some_error.Add(true);
+                    some_error.Add(false);
+                    break;
+                case "5":
+                    some_error.Add(true);
+                    some_error.Add(true);
+                    some_error.Add(true);
+                    some_error.Add(true);
+                    some_error.Add(false);
+                    break;
+                default:
+                    //
+                    break;
+            }
 
             if (HostTransform == null)
             {
