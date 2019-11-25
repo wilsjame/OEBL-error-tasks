@@ -71,9 +71,9 @@ public class SpawnHotspots_pointing : MonoBehaviour {
         config = GameObject.Find("TaskConfig").GetComponent<TaskConfig>();
         //UnityEngine.Debug.Log("pointing_error: " + config.pointing_error);
         //UnityEngine.Debug.Log("pointing_trials: " + config.pointing_trials);
-        File.AppendAllText(@path, "# Trials : " + config.pointing_trials);
+        File.AppendAllText(@path, "Trials  : " + config.pointing_trials);
         File.AppendAllText(@path, "\r\n"); 
-        File.AppendAllText(@path, "Error : " + config.pointing_error);
+        File.AppendAllText(@path, "Error   : " + config.pointing_error);
         File.AppendAllText(@path, "\r\n");
 
         // convert # trials from string to int
@@ -184,7 +184,9 @@ public class SpawnHotspots_pointing : MonoBehaviour {
 			stopwatch.Reset();
 
 			// Write time to file
-			File.WriteAllText(@path, ts.ToString());
+            File.AppendAllText(@path, "Trial " + trial + " : ");
+            File.AppendAllText(@path, ts.ToString());
+            File.AppendAllText(@path, "\r\n");
 
             if (trial < total_trials)
             {
@@ -214,6 +216,7 @@ public class SpawnHotspots_pointing : MonoBehaviour {
             else
             {
                 UnityEngine.Debug.Log("All trials completed!");
+                //TODO
                 // spawn "completed!" text
             }
 
