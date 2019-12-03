@@ -70,14 +70,15 @@ public class SpawnHotspots_pointing : MonoBehaviour {
         // # Trials : 1, 2, 3
         config = GameObject.Find("TaskConfig").GetComponent<TaskConfig>();
         //UnityEngine.Debug.Log("pointing_error: " + config.pointing_error);
-        //UnityEngine.Debug.Log("pointing_trials: " + config.pointing_trials);
-        File.AppendAllText(@path, "Trials  : " + config.pointing_trials);
+        //UnityEngine.Debug.Log("number_of_trials: " + config.number_of_trials);
+        File.AppendAllText(@path, "Trials  : " + config.number_of_trials);
         File.AppendAllText(@path, "\r\n"); 
         File.AppendAllText(@path, "Error   : " + config.pointing_error);
         File.AppendAllText(@path, "\r\n");
 
         // convert # trials from string to int
-        switch (config.pointing_trials)
+        //TODO change to generic trials?
+        switch (config.number_of_trials)
         {
             case "1":
                 total_trials = 1;

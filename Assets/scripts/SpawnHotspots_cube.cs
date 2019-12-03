@@ -33,8 +33,9 @@ public class SpawnHotspots_cube : MonoBehaviour {
     	List<CoOrds> counter_collection = new List<CoOrds> ();	/* Trial counter coordinates */
 	public int itr = 0;					/* Keep track of list iterations */
 	public int trial = 0;					/* Keep track of completed trials */
+    private int total_trials; // number of trials selected from the task set up menu
 
-	public string fileName = "cube_task_time_";
+    public string fileName = "cube_task_time_";
 	public Stopwatch stopwatch = new Stopwatch();
 	public string path;
 
@@ -62,6 +63,7 @@ public class SpawnHotspots_cube : MonoBehaviour {
 		// Error : 1, 3, R, 5
 		config = GameObject.Find("TaskConfig").GetComponent<TaskConfig>();
 		
+        //TODO encapsulate and print relevent number of trials
 		File.AppendAllText(@path, "Size    : " + config.size);   
 		File.AppendAllText(@path, "\r\n");
         File.AppendAllText(@path, "Error   : " +
@@ -71,7 +73,24 @@ public class SpawnHotspots_cube : MonoBehaviour {
 				config.trial_4);*/
 		File.AppendAllText(@path, "\r\n");
 
-		initializeCoordinates (ref coOrds_collection, ref counter_collection);
+        // convert # trials from string to int
+        switch (config.number_of_trials)
+        {
+            case "1":
+                total_trials = 1;
+                break;
+            case "2":
+                total_trials = 2;
+                break;
+            case "3":
+                total_trials = 3;
+                break;
+            default:
+                //
+                break;
+        }
+
+        initializeCoordinates(ref coOrds_collection, ref counter_collection);
 
 		/* Call function once on startup to create initial hotspot */
 		HotSpotTriggerInstantiate ();
@@ -275,11 +294,15 @@ public class SpawnHotspots_cube : MonoBehaviour {
 
 			UnityEngine.Debug.Log( "Trial " + trial + " completed!");
 
-			if (trial < 3) {
+			if (trial < total_trials) {
 				reset();
 			}
-				
-		}
+            else
+            {
+                UnityEngine.Debug.Log("All trials completed!");
+            }
+
+        }
 
 		return;
 

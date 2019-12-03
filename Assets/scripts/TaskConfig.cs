@@ -21,11 +21,14 @@ public class TaskConfig : MonoBehaviour
     //public string trial_4;
 
     public string pointing_error;
-    public string pointing_trials;
+    public string number_of_trials;
 
     void Start()
     {
         // defauit radial selections
+
+        // Pointing, cube, cube random plane
+        number_of_trials = "1";
 
         // cube tasks
         size = "small";
@@ -36,7 +39,12 @@ public class TaskConfig : MonoBehaviour
 
         // pointing tasks
         pointing_error = "random";
-        pointing_trials = "1";
+    }
+
+    // Pointing, cube, cube random plane
+    public void setNumberOfTrials(string n)
+    {
+        number_of_trials = n;
     }
 
     // cube tasks
@@ -73,11 +81,6 @@ public class TaskConfig : MonoBehaviour
     public void setPointingError(string s)
     {
         pointing_error = s;
-    }
-
-    public void setPointingTrials(string n)
-    {
-        pointing_trials = n;
     }
 
 }
