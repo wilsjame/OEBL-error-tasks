@@ -3,6 +3,7 @@
  * configuration. */
 using UnityEngine;
 using System.Collections;
+using HoloToolkit.Examples.InteractiveElements;
 
 public class TaskConfig : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class TaskConfig : MonoBehaviour
 
     public string pointing_error;
     public string number_of_trials;
+
+    public float sliderValueMainMenu_SphereSize;
+    public float sliderValueMainMenu_SphereCollectionSize;
 
     void Start()
     {
@@ -83,4 +87,17 @@ public class TaskConfig : MonoBehaviour
         pointing_error = s;
     }
 
+    public void getSlider_SphereSize()
+    {
+        GameObject slider = GameObject.Find("Sphere_Size_Slider"); // Grab sphere size slider from scene
+        SliderGestureControl sliderScript = slider.GetComponent<SliderGestureControl>(); // Grab script off of slider
+        sliderValueMainMenu_SphereSize = sliderScript.GetSliderValue();
+    }
+
+    public void getSlider_SphereCollectionSize()
+    {
+        GameObject slider = GameObject.Find("Collection_Size_Slider"); // Grab sphere size slider from scene
+        SliderGestureControl sliderScript = slider.GetComponent<SliderGestureControl>(); // Grab script off of slider
+        sliderValueMainMenu_SphereCollectionSize = sliderScript.GetSliderValue();
+    }
 }

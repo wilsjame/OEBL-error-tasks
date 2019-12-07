@@ -8,9 +8,19 @@ public class SphereSizeSlider : MonoBehaviour {
 	//GameObject SpawnHotspots;
 	GameObject trigger_sphere;
 	float sliderValue;
-	
-	/* Update is called once per frame (Required because newly spawned trigger points need to be scaled) */
-	void Update () {
+
+    // Settings
+    private TaskConfig config;
+
+    private void Start()
+    {
+
+        // Grab and set the slider value from the main menu task config
+        config = GameObject.Find("TaskConfig").GetComponent<TaskConfig>();
+        sliderValue = config.sliderValueMainMenu_SphereSize; 
+    }
+    /* Update is called once per frame (Required because newly spawned trigger points need to be scaled) */
+    void Update () {
 		
 		//Debug.Log("trial from slider: " + GameObject.Find("SpawnHotSpots").GetComponent<SpawnHotspots>().trial);
 		// Change the static and trigger sphere size according to the slider value 
