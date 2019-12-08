@@ -49,6 +49,7 @@ public class SpawnHotspots_pointing : MonoBehaviour {
 
     // Settings
     private TaskConfig config;
+    private float radius; // set from main menu slider
 
 	/* Use this for initialization */
 	void Start () {
@@ -94,6 +95,9 @@ public class SpawnHotspots_pointing : MonoBehaviour {
                 break;
         }
 
+        // set radius from main menu preset
+        radius = config.sliderValueMainMenu_SphereCollectionSize;
+
         /* Generate */
         initializeCoordinates (ref order, ref coOrds_collection, ref coOrds_collection_2);
 
@@ -110,7 +114,6 @@ public class SpawnHotspots_pointing : MonoBehaviour {
 		CoOrds temp_vector;
 		int random_placeholder;
 		int numberOfObjects = 18;
-		float radius = .5f;
 
 		/* z = 0.3 frame */
 		for (i = 0; i < numberOfObjects; i++) {

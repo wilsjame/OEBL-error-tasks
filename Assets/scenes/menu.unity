@@ -3142,7 +3142,7 @@ MonoBehaviour:
     m_TypeName: HoloToolkit.Unity.UnityEventFloat, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   MinSliderValue: 0.5
-  MaxSliderValue: 1.5
+  MaxSliderValue: 1
   Centered: 0
   LabelFormat: 00
 --- !u!114 &2088271197

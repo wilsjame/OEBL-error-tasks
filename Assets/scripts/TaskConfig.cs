@@ -43,6 +43,13 @@ public class TaskConfig : MonoBehaviour
 
         // pointing tasks
         pointing_error = "random";
+
+        // default if slider not moved
+        if (sliderValueMainMenu_SphereCollectionSize == 0)
+        {
+            sliderValueMainMenu_SphereCollectionSize = 0.5f;
+        }
+
     }
 
     // Pointing, cube, cube random plane

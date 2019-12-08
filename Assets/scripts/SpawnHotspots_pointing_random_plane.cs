@@ -53,6 +53,7 @@ public class SpawnHotspots_pointing_random_plane : MonoBehaviour {
 
     // Settings
     private TaskConfig config;
+    private float radius; // set from main menu slider
 
     /* Use this for initialization */
     void Start () {
@@ -101,6 +102,9 @@ public class SpawnHotspots_pointing_random_plane : MonoBehaviour {
         }
         */
 
+        // set radius from main menu preset
+        radius = config.sliderValueMainMenu_SphereCollectionSize;
+
         /* Generate */
         initializeCoordinates (ref order, ref coOrds_collection, ref coOrds_collection_1, ref coOrds_collection_2, ref coOrds_collection_3);
 
@@ -116,7 +120,6 @@ public class SpawnHotspots_pointing_random_plane : MonoBehaviour {
 		CoOrds temp_vector;
 		int random_placeholder;
 		int numberOfObjects = 18;
-		float radius = .5f;
 
 		/* z = 0 frame */
 		for (i = 0; i < numberOfObjects; i++) {
