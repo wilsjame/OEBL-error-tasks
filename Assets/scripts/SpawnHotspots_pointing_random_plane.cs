@@ -19,7 +19,8 @@ public class SpawnHotspots_pointing_random_plane : MonoBehaviour {
     public Transform static_point;
 	public Transform trigger_point;
 	public Transform trial_counter;
-	private GameObject camera;
+    public Transform finish_label;
+    private GameObject camera;
 
 	/* Encapsulated trial counter coordinates */ 
 	public struct CoOrds
@@ -409,8 +410,10 @@ public class SpawnHotspots_pointing_random_plane : MonoBehaviour {
 				newPlane();
 			}
 			else {
-				UnityEngine.Debug.Log("END");
-			}
+				UnityEngine.Debug.Log("Finish");
+                Transform finish = Instantiate(finish_label, new Vector3(0f, 0f, 0f), Quaternion.identity, this.transform); // Make this gameobject the parent
+                finish.localPosition = new Vector3(0f, 0f, 0f); // Spawn position relative to parent
+            }
 
 		}
 

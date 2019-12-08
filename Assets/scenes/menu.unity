@@ -369,6 +369,25 @@ Prefab:
       propertyPath: OnUpdateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1879512680}
+    - target: {fileID: 4572620028283802, guid: 6a6cc7c1f7b8f7448a65e9960d7767be, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.195
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572620028283802, guid: 6a6cc7c1f7b8f7448a65e9960d7767be, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.035
+      objectReference: {fileID: 0}
+    - target: {fileID: 102711654705711934, guid: 6a6cc7c1f7b8f7448a65e9960d7767be,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Sphere Collection Size
+
+        (Radius meters)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4563358518508390, guid: 6a6cc7c1f7b8f7448a65e9960d7767be, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.013
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a6cc7c1f7b8f7448a65e9960d7767be, type: 2}
   m_IsPrefabParent: 0

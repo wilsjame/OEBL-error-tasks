@@ -464,6 +464,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1083727521671062, guid: 849f80460749d504497adbf567df69e5, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155973205413050, guid: 849f80460749d504497adbf567df69e5, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 849f80460749d504497adbf567df69e5, type: 2}
   m_IsPrefabParent: 0
@@ -489,6 +497,8 @@ MonoBehaviour:
     type: 2}
   trial_counter: {fileID: 4848678916027204, guid: 6d1fcaa6cc144b94caf336b1c1dec254,
     type: 2}
+  finish_label: {fileID: 4283113086348562, guid: 37b1695959f70b64395955e1f9d2145d,
+    type: 2}
   order: 00000000
   itr: 0
   trial: 0
@@ -508,6 +518,7 @@ MonoBehaviour:
   static_point: {fileID: 0}
   trigger_point: {fileID: 0}
   trial_counter: {fileID: 0}
+  finish_label: {fileID: 0}
   order: 000000000100000002000000
   itr: 0
   plane: 0
