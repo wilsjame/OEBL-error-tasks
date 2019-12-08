@@ -510,7 +510,8 @@ Prefab:
         valid tap. The order of these taps is random. \r\n- 5 represents four false
         taps and one valid tap. The order of these taps is random.\r\n- Random represents
         a random selection of 1, 3, or 5 behavior for each cube.\r\n\r\nTap the Pointing
-        Tasks Setup radio button menu to choose error behavior."
+        Tasks Setup radio button menu to choose error behavior.\r\nUse the sliders
+        to preset the sphere size and sphere collection size.  "
       objectReference: {fileID: 0}
     - target: {fileID: 114669922776097872, guid: a3f14aa6417acfa4ea1c4feb6af974ab,
         type: 2}
