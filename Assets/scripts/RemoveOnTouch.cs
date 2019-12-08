@@ -164,7 +164,7 @@ namespace HoloToolkit.Unity.InputModule
 		if (some_error[error_itr] == true)
 		{
 
-			yield return new WaitForSeconds(1);
+			yield return new WaitForSeconds(0.75f); // time to wait between taps
 
 			error_itr++;
 			IsDraggingEnabled = true; // enable call in update()
