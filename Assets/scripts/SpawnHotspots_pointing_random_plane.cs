@@ -11,8 +11,12 @@ public class SpawnHotspots_pointing_random_plane : MonoBehaviour {
 	/* Parent gameObject to hold generated hotspot collection */
 	GameObject parentObject;
 
-	/* Prefabs */
-	public Transform static_point;
+    // move these if sphere size collection radius is large enough
+    private GameObject counter_label;
+    private GameObject slider_manager;
+
+    /* Prefabs */
+    public Transform static_point;
 	public Transform trigger_point;
 	public Transform trial_counter;
 	private GameObject camera;
@@ -105,6 +109,56 @@ public class SpawnHotspots_pointing_random_plane : MonoBehaviour {
         // set radius from main menu preset
         radius = config.sliderValueMainMenu_SphereCollectionSize;
 
+        // move counter and sliders depending on how large the radius is
+        counter_label = GameObject.Find("counter label");
+        slider_manager = GameObject.Find("Slider_Manager");
+
+        if (radius >= 0.75)
+        {
+            counter_label.transform.position = new Vector3(1.415f, 0.6f, 0f);
+            slider_manager.transform.position = new Vector3(2.4f, 0.35f, 0f);
+
+            CoOrds counter_1 = new CoOrds(0.71f + 0.6f, 0.5f, 0.0f, null);
+            counter_collection.Add(counter_1);
+            CoOrds counter_2 = new CoOrds(0.81f + 0.6f, 0.5f, 0.0f, null);
+            counter_collection.Add(counter_2);
+            CoOrds counter_3 = new CoOrds(0.91f + 0.6f, 0.5f, 0.0f, null);
+            counter_collection.Add(counter_3);
+        }
+        else if (radius >= 0.70f)
+        {
+            counter_label.transform.position = new Vector3(1.265f, 0.6f, 0f);
+            slider_manager.transform.position = new Vector3(2.25f, 0.35f, 0f);
+
+            CoOrds counter_1 = new CoOrds(0.71f + 0.45f, 0.5f, 0.0f, null);
+            counter_collection.Add(counter_1);
+            CoOrds counter_2 = new CoOrds(0.81f + 0.45f, 0.5f, 0.0f, null);
+            counter_collection.Add(counter_2);
+            CoOrds counter_3 = new CoOrds(0.91f + 0.45f, 0.5f, 0.0f, null);
+            counter_collection.Add(counter_3);
+        }
+        else if (radius >= 0.65)
+        {
+            counter_label.transform.position = new Vector3(1.115f, 0.6f, 0f);
+            slider_manager.transform.position = new Vector3(2.1f, 0.35f, 0f);
+
+            CoOrds counter_1 = new CoOrds(0.71f + 0.3f, 0.5f, 0.0f, null);
+            counter_collection.Add(counter_1);
+            CoOrds counter_2 = new CoOrds(0.81f + 0.3f, 0.5f, 0.0f, null);
+            counter_collection.Add(counter_2);
+            CoOrds counter_3 = new CoOrds(0.91f + 0.3f, 0.5f, 0.0f, null);
+            counter_collection.Add(counter_3);
+        }
+        else
+        {
+            CoOrds counter_1 = new CoOrds(0.71f, 0.5f, 0.0f, null);
+            counter_collection.Add(counter_1);
+            CoOrds counter_2 = new CoOrds(0.81f, 0.5f, 0.0f, null);
+            counter_collection.Add(counter_2);
+            CoOrds counter_3 = new CoOrds(0.91f, 0.5f, 0.0f, null);
+            counter_collection.Add(counter_3);
+        }
+
         /* Generate */
         initializeCoordinates (ref order, ref coOrds_collection, ref coOrds_collection_1, ref coOrds_collection_2, ref coOrds_collection_3);
 
@@ -192,12 +246,14 @@ public class SpawnHotspots_pointing_random_plane : MonoBehaviour {
 		//UnityEngine.Debug.Log("Plane order after shuffle: " + order[0] + order[1] + order[2]);
 
 		/* Trial counters */ 
+        /*
 		CoOrds counter_1 = new CoOrds (0.71f, 0.5f, 0.0f, null);
 		counter_collection.Add (counter_1);
 		CoOrds counter_2 = new CoOrds (0.81f, 0.5f, 0.0f, null);
 		counter_collection.Add (counter_2);
 		CoOrds counter_3 = new CoOrds (0.91f, 0.5f, 0.0f, null);
 		counter_collection.Add (counter_3);	
+        */
 
 		/* Spawn initial static points */ 
 		for (i = 0; i < numberOfObjects; i++) {
